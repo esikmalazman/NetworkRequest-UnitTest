@@ -35,5 +35,6 @@ final class HttpClientTests: XCTestCase {
 
         // Assert
         // Submitted URL should equal “https://mockurl”
+        XCTAssertEqual(url, session.capturedURL)
     }
 }
