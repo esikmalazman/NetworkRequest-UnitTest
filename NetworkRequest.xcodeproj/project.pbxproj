@@ -10,6 +10,8 @@
 		7F69676929E1B00A00A8A71B /* NetworkRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F69676029E1B00A00A8A71B /* NetworkRequest.framework */; };
 		7F69677B29E1B09F00A8A71B /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F69677A29E1B09F00A8A71B /* HttpClient.swift */; };
 		7F69677D29E1B0F900A8A71B /* URLSessionContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F69677C29E1B0F900A8A71B /* URLSessionContract.swift */; };
+		7F69678129E1B15C00A8A71B /* HttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F69678029E1B15C00A8A71B /* HttpClientTests.swift */; };
+		7F69678329E1B19B00A8A71B /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F69678229E1B19B00A8A71B /* MockURLSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,8 @@
 		7F69676829E1B00A00A8A71B /* NetworkRequestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkRequestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F69677A29E1B09F00A8A71B /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		7F69677C29E1B0F900A8A71B /* URLSessionContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionContract.swift; sourceTree = "<group>"; };
+		7F69678029E1B15C00A8A71B /* HttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientTests.swift; sourceTree = "<group>"; };
+		7F69678229E1B19B00A8A71B /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 		7F69676C29E1B00A00A8A71B /* NetworkRequestTests */ = {
 			isa = PBXGroup;
 			children = (
+				7F69678029E1B15C00A8A71B /* HttpClientTests.swift */,
+				7F69678229E1B19B00A8A71B /* MockURLSession.swift */,
 			);
 			path = NetworkRequestTests;
 			sourceTree = "<group>";
@@ -147,6 +153,7 @@
 					};
 					7F69676729E1B00A00A8A71B = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -200,6 +207,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F69678329E1B19B00A8A71B /* MockURLSession.swift in Sources */,
+				7F69678129E1B15C00A8A71B /* HttpClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,14 +405,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 66846BKCQ4;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.esikmalazman.NetworkRequestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -412,10 +428,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 66846BKCQ4;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.esikmalazman.NetworkRequestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
