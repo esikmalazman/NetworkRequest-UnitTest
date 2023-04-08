@@ -5,15 +5,19 @@ final class MockURLSession : URLSessionContract {
     
     private(set) var capturedURL : URL?
     var capturedCompletionHandler : ((Data?, URLResponse?, Error?) -> Void)?
-    var fakeDataTask = FakeDataTask()
+    var dataTask = FakeDataTask()
     
     func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         self.capturedURL = request.url
         self.capturedCompletionHandler = completionHandler
-        return fakeDataTask
+        return dataTask
     }
 }
 
 final class FakeDataTask : URLSessionDataTask {
-    override func resume() {}
+    var resumeWasCalled = false
+    
+    override func resume() {
+        resumeWasCalled = true
+    }
 }
